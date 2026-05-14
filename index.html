@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#064e2b" />
+  <title>JGC e-Platform (AM-WIP)</title>
+  <link rel="icon" type="image/webp" href="logo.webp" />
+  <link rel="apple-touch-icon" href="logo.webp" />
+  <style>
+    :root{
+      --green:#057a3d;--green2:#003d22;--dark:#06140d;--light:#f3faf6;--blue:#0b57d0;--text:#101828;--muted:#667085;--card:#ffffff;--line:#d9eadf;--shadow:0 18px 45px rgba(16,24,40,.14);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top left,#e8fff2 0,#f7faf8 32%,#fff 100%);color:var(--text);min-height:100vh}
+    .wrap{max-width:1180px;margin:auto;padding:0 18px}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid #e7efe9}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:74px;height:74px;border-radius:50%;object-fit:cover;box-shadow:0 8px 22px rgba(0,100,50,.22);background:#fff}
+    .brand h1{font-size:30px;line-height:1.1;color:#0b3d24}.brand h1 span{color:#e10600}.brand p{margin-top:5px;color:var(--muted);font-weight:500}
+    .navlinks{display:flex;gap:10px;align-items:center}.pill{padding:12px 18px;border-radius:999px;background:#0a5c35;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 20px rgba(10,92,53,.24)}
+    .hero{margin:24px auto 24px;border-radius:30px;overflow:hidden;min-height:360px;background:linear-gradient(110deg,rgba(0,20,12,.94),rgba(0,74,39,.86)),radial-gradient(circle at 72% 50%,rgba(0,255,132,.28),transparent 28%);color:#fff;box-shadow:var(--shadow);position:relative}
+    .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;padding:44px 46px}
+    .hero h2{font-size:54px;line-height:1.05;margin-bottom:18px}.hero h2 span{color:#72f06e}.hero p{font-size:20px;line-height:1.55;color:#e8fff0;max-width:620px}
+    .hero-logo{width:310px;height:310px;border-radius:50%;object-fit:cover;margin:auto;display:block;filter:drop-shadow(0 0 28px rgba(0,255,132,.45))}
+    .chips{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}.chip{border:1px solid rgba(114,240,110,.5);background:rgba(255,255,255,.08);padding:14px 18px;border-radius:18px;font-weight:800;color:#fff}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px auto}.card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 12px 35px rgba(16,24,40,.08);position:relative;overflow:hidden}.card:after{content:"";position:absolute;right:-50px;bottom:-50px;width:150px;height:150px;border-radius:50%;background:rgba(5,122,61,.08)}
+    .card.blue:after{background:rgba(11,87,208,.08)}.card-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}.icon{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#0fa85a,#045c31);display:grid;place-items:center;color:#fff;font-size:34px;box-shadow:0 12px 28px rgba(5,122,61,.25)}.blue .icon{background:linear-gradient(135deg,#2477f2,#063e96)}
+    .card h3{font-size:36px;line-height:1.06;color:#063f25}.blue h3{color:#083f99}.card>p{color:#475467;font-size:17px;line-height:1.55;margin-bottom:22px}.mini-line{width:62px;height:4px;border-radius:10px;background:var(--green);margin-bottom:20px}.blue .mini-line{background:var(--blue)}
+    .item{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fbfefd;border:1px solid #dfece5;border-radius:18px;padding:17px 18px;margin:12px 0;box-shadow:0 7px 18px rgba(16,24,40,.05);position:relative;z-index:1}.item strong{font-size:20px}.item small{display:block;color:#667085;margin-top:3px}.btn{border:0;text-decoration:none;white-space:nowrap;border-radius:13px;padding:13px 18px;font-weight:900;color:#fff;background:linear-gradient(135deg,#067a3f,#04a65a);cursor:pointer;box-shadow:0 9px 20px rgba(5,122,61,.24)}.blue .btn{background:linear-gradient(135deg,#0b57d0,#0648aa)}.btn:hover{transform:translateY(-1px)}
+    .values{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px auto}.value{background:#fff;border:1px solid #e1ebe6;border-radius:20px;padding:18px;box-shadow:0 8px 22px rgba(16,24,40,.06)}.value b{display:block;color:#064e2b;margin-bottom:5px}.value span{color:#667085;font-size:14px;line-height:1.4}
+    footer{margin-top:28px;background:linear-gradient(135deg,#03140d,#064e2b);color:#fff}.foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:24px 0}.foot img{width:70px;height:70px;border-radius:50%;object-fit:cover}.foot p{color:#d7ffe9}.help{background:#0bbf63;color:#fff;padding:12px 16px;border-radius:999px;text-decoration:none;font-weight:900}
+    @media(max-width:850px){.hero-inner,.grid{grid-template-columns:1fr}.hero h2{font-size:40px}.hero-inner{padding:30px 22px}.hero-logo{width:220px;height:220px}.values{grid-template-columns:1fr 1fr}.brand h1{font-size:24px}.item{align-items:flex-start;flex-direction:column}.btn{width:100%;text-align:center}.navlinks{width:100%}.pill{width:100%;text-align:center}}
+    @media(max-width:520px){.values{grid-template-columns:1fr}.brand img{width:62px;height:62px}.hero h2{font-size:34px}.card h3{font-size:29px}.card{padding:22px}.wrap{padding:0 12px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="logo.webp" alt="JGC e-Reporting HSE Logo">
+      <div>
+        <h1><span>JGC</span> e-Platform (AM-WIP)</h1>
+        <p>One Platform. Safe Workplace. Stronger Tomorrow.</p>
+      </div>
+    </div>
+    <div class="navlinks"><a class="pill" href="#forms">Home</a><a class="pill" href="#hse">HSE Reporting</a></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h2>Welcome to<br><span>JGC e-Platform</span><br>(AM-WIP)</h2>
+        <p>Your modern digital access panel for JGC e-Form submissions and controlled HSE reporting.</p>
+        <div class="chips"><div class="chip">🛡️ Safe Work Every Day</div><div class="chip">👷 Everyone Goes Home Safe</div></div>
+      </div>
+      <img class="hero-logo" src="logo.webp" alt="JGC HSE Logo">
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card" id="forms">
+      <div class="card-head"><div class="icon">📋</div><h3>JGC e-Form<br>Submissions</h3></div>
+      <p>Submit safety forms digitally through Microsoft Forms. Quick, easy and mobile friendly.</p><div class="mini-line"></div>
+      <div class="item"><div><strong>e-JSO</strong><small>Job Safety Observation</small></div><a class="btn" target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNUOFozSlpGVFFOQTg3NTVLT1ZXWE5WU05JSi4u">Open Form ↗</a></div>
+      <div class="item"><div><strong>STARRT</strong><small>Start Safe, Think, Assess, Review, Respond and Task</small></div><a class="btn" target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNURDhaMUxOM1cyQktENkczUkxNQjA3RVE3OC4u">Open Form ↗</a></div>
+      <div class="item"><div><strong>Heat Stress</strong><small>Rest Shelter Report</small></div><a class="btn" target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNUNlA3Ulk3NEg1RzBQOUlPN0RaRFAyUVlaUC4u">Open Form ↗</a></div>
+    </div>
+
+    <div class="card blue" id="hse">
+      <div class="card-head"><div class="icon">🛡️</div><h3>HSE<br>Reporting</h3></div>
+      <p>Password protected section for authorized personnel. The report will open only after entering the correct password.</p><div class="mini-line"></div>
+      <div class="item"><div><strong>HSE Reporting</strong><small>Observation / Incident Reporting</small></div><button class="btn" type="button" onclick="openHSE()">Submit HSE Report 🔒</button></div>
+      <div class="item"><div><strong>Access Control</strong><small>Password required before opening Microsoft Form.</small></div><button class="btn" type="button" onclick="openHSE()">Open Reporting</button></div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="value"><b>Safety First</b><span>We prioritize safe work in every activity.</span></div>
+    <div class="value"><b>Work Together</b><span>Teamwork drives a safer workplace.</span></div>
+    <div class="value"><b>Report & Improve</b><span>Report issues and help us improve.</span></div>
+    <div class="value"><b>Care for All</b><span>We care for people and environment.</span></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot"><div style="display:flex;align-items:center;gap:14px"><img src="logo.webp" alt="Logo"><div><b>JGC e-Platform (AM-WIP)</b><p>Health | Safety | Environment</p></div></div><a class="help" href="https://web.whatsapp.com/" target="_blank">Contact HSE Team</a></div>
+</footer>
+
+<script>
+  function openHSE(){
+    const password = prompt('Enter HSE Reporting Password');
+    if(password === 'JGC123'){
+      window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNUNldNVkUwVDEwMzFKUFpJTEJSMUZDRTkyQS4u','_blank','noopener');
+    }else if(password !== null){
+      alert('Incorrect Password');
+    }
+  }
+</script>
+</body>
+</html>
