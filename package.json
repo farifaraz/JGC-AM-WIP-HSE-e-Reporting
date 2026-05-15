@@ -1,1 +1,7 @@
-{"scripts":{"build":"mkdir -p dist && cp index.html logo.webp dist/"},"dependencies":{},"devDependencies":{}}
+{
+  "scripts": {
+    "build": "mkdir -p dist && cp -r index.html logo.webp footer-logo.webp public dist/"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
