@@ -54,8 +54,8 @@
     <div class="hero-inner">
       <div>
         <h2>Welcome to<br><span>JGC e-Platform</span><br>(AM-WIP)</h2>
-        <p>Your modern digital access panel for JGC e-Form submissions and controlled HSE reporting.</p>
-        <div class="chips"><div class="chip">🛡️ Safe Work Every Day</div><div class="chip">👷 Everyone Goes Home Safe</div></div>
+        <p>Digital access panel for JGC e-Forms submissions and controlled HSE reporting for AM-WIP.</p>
+        <div class="chips"><div class="chip">🛡️ Stop-Intervene-Protect</div><div class="chip">👷 Zero Harm Starts With You</div></div>
       </div>
       <img class="hero-logo" src="logo.webp" alt="JGC HSE Logo">
     </div>
@@ -64,17 +64,17 @@
   <section class="grid">
     <div class="card" id="forms">
       <div class="card-head"><div class="icon">📋</div><h3>JGC e-Form<br>Submissions</h3></div>
-      <p>Submit safety forms digitally through Microsoft Forms. Quick, easy and mobile friendly.</p><div class="mini-line"></div>
-      <div class="item"><div><strong>e-JSO</strong><small>Job Safety Observation</small></div><a class="btn" target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNUOFozSlpGVFFOQTg3NTVLT1ZXWE5WU05JSi4u">Open Form ↗</a></div>
-      <div class="item"><div><strong>STARRT</strong><small>Start Safe, Think, Assess, Review, Respond and Task</small></div><a class="btn" target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNURDhaMUxOM1cyQktENkczUkxNQjA3RVE3OC4u">Open Form ↗</a></div>
+      <p>Submit e-JSO, STARRT and Heat STress Rest Shelter forms.</p><div class="mini-line"></div>
+      <div class="item"><div><strong>e-JSO</strong><small>Safety Observation</small></div><a class="btn" target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNUOFozSlpGVFFOQTg3NTVLT1ZXWE5WU05JSi4u">Open Form ↗</a></div>
+      <div class="item"><div><strong>STARRT</strong><small>Safety Talk and Risk Reduction Task Report</small></div><a class="btn" target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNURDhaMUxOM1cyQktENkczUkxNQjA3RVE3OC4u">Open Form ↗</a></div>
       <div class="item"><div><strong>Heat Stress</strong><small>Rest Shelter Report</small></div><a class="btn" target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNUNlA3Ulk3NEg1RzBQOUlPN0RaRFAyUVlaUC4u">Open Form ↗</a></div>
     </div>
 
     <div class="card blue" id="hse">
       <div class="card-head"><div class="icon">🛡️</div><h3>HSE<br>Reporting</h3></div>
-      <p>Password protected section for authorized personnel. The report will open only after entering the correct password.</p><div class="mini-line"></div>
-      <div class="item"><div><strong>HSE Reporting</strong><small>Observation / Incident Reporting</small></div><button class="btn" type="button" onclick="openHSE()">Submit HSE Report 🔒</button></div>
-      <div class="item"><div><strong>Access Control</strong><small>Password required before opening Microsoft Form.</small></div><button class="btn" type="button" onclick="openHSE()">Open Reporting</button></div>
+      <p>Password protected, for authorized HSE only. Please enter the password recieved from JGC HSE Department .</p><div class="mini-line"></div>
+      <div class="item"><div><strong>HSE Reporting</strong><small>Observation Reporting</small></div><button class="btn" type="button" onclick="openHSE()">Submit HSE Report 🔒</button></div>
+      <div class="item"><div><strong>Access Control</strong><small>.</small></div><button class="btn" type="button" onclick="openHSE()">Open Reporting</button></div>
     </div>
   </section>
 
@@ -92,7 +92,7 @@
 
 <script>
   function openHSE(){
-    const password = prompt('Enter HSE Reporting Password');
+    const password = prompt('Enter the  Password');
     if(password === 'JGC123'){
       window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=hT3hNJc93UOVIYH27Q_bXRR73pEjVSpLqk2is-jxrrNUNldNVkUwVDEwMzFKUFpJTEJSMUZDRTkyQS4u','_blank','noopener');
     }else if(password !== null){
